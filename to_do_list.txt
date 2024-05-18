@@ -1,4 +1,14 @@
-1. Combine temperature and power usage data into one dataset.
-2. Learn what hdd and cdd values are how to combine them.
-3. Learn how to make exploratory analysis on data.
-    3a. Create a function for ...
+[DONE] 1. Make to-do list.
+[] 2. Plan the project.
+[] 3. Combine temperature and power usage data into one dataset.
+[] 4. Learn what hdd and cdd values are how to combine them.
+[] 5. Merge time period and location data together.
+[] 6. Learn how to make exploratory analysis on data.
+[] 7. Create a function for ...
+    [] 7a. [Correlation between selected driver and selected meter]
+    [] 7b. [Correlation between all drivers] 
+    [] 7c. [Single Regression between selected meter and selected Driver]
+[] 8. Visualize work and format the potential results in json.
+[] 9. Create a neural network and make a prediction for the next 2 months of usage w/ regression
+[] 10. Forecast a time series analysis and predict the same next 2 months.
+[] 11. Compare the results of these two methods with metrics.
