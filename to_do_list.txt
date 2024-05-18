@@ -1,6 +1,6 @@
 [DONE] 1. Make to-do list.
 [DONE] 2. Plan the project.
-[] 3. Combine temperature and power usage data into one dataset.
+[] 3. Combine hdd and cdd values on given time period && given location.
 [] 4. Learn what hdd and cdd values are and how to combine them.
 [] 5. Merge time period and location data together.
 [] 6. Learn how to make exploratory analysis on data.
@@ -12,12 +12,14 @@
 [] 9. Create a neural network and make a prediction for the next 2 months of usage w/ regression
 [] 10. Forecast a time series analysis and predict the same next 2 months.
 [] 11. Compare the results of these two methods with metrics.
+[DONE] 12. Combine temperature and electric usage datasets into one dataset.
+
 
 
 Daily Plan:
 ===========
 
-Saturday: 1-2-3-4-5-6
+Saturday: 1-2-3-4-5-6 12
 Sunday: Break
 Monday: 7-8
 Tuesday: 9-10
