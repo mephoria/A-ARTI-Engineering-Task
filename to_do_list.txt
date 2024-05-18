@@ -1,7 +1,7 @@
 [DONE] 1. Make to-do list.
-[] 2. Plan the project.
+[DONE] 2. Plan the project.
 [] 3. Combine temperature and power usage data into one dataset.
-[] 4. Learn what hdd and cdd values are how to combine them.
+[] 4. Learn what hdd and cdd values are and how to combine them.
 [] 5. Merge time period and location data together.
 [] 6. Learn how to make exploratory analysis on data.
 [] 7. Create a function for ...
@@ -22,3 +22,10 @@ Sunday: Break
 Monday: 7-8
 Tuesday: 9-10
 Wednesday: 11
+
+
+Notes:
+======
+
+What is HDD and CDD?:
+https://www.investopedia.com/terms/h/heatingdegreeday.asp
