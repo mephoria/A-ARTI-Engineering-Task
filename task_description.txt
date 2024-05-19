@@ -14,7 +14,7 @@ Use this dataset
 
 https://www.kaggle.com/datasets/srinuti/residential-power-usage-3years-data-timeseries
 
-Combine temperature and electric usage datasets into one dataset.
+// Combine temperature and electric usage datasets into one dataset.
 Think like that, electric usage is “meter” and  temperature values are “driver”
 
 I want to combine hdd and cdd values on given time period && given location. You can reach location from data card.

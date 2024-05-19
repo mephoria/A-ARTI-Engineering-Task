@@ -31,3 +31,5 @@ Notes:
 
 What is HDD and CDD?:
 https://www.investopedia.com/terms/h/heatingdegreeday.asp
+
+https://www.weather.gov/key/climate_heat_cool#:~:text=If%20the%20temperature%20mean%20is,result%20is%20Heating%20Degree%20Days.&text=Because%20the%20result%20is%20below,F%20%3D%2036%20Heating%20Degree%20Days.
