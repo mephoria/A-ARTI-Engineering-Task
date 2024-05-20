@@ -1,8 +1,8 @@
 [DONE] 1. Make to-do list.
 [DONE] 2. Plan the project.
-[] 3. Combine hdd and cdd values on given time period && given location.
-[] 4. Learn what hdd and cdd values are and how to combine them.
-[] 5. Merge time period and location data together.
+[DONE] 3. Combine hdd and cdd values on given time period && given location.
+[DONE] 4. Learn what hdd and cdd values are and how to combine them.
+[DONE] 5. Merge time period and location data together.
 [] 6. Learn how to make exploratory analysis on data.
 [] 7. Create a function for ...
     [] 7a. [Correlation between selected driver and selected meter]

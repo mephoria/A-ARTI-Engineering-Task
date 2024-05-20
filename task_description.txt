@@ -17,7 +17,7 @@ https://www.kaggle.com/datasets/srinuti/residential-power-usage-3years-data-time
 // Combine temperature and electric usage datasets into one dataset.
 Think like that, electric usage is “meter” and  temperature values are “driver”
 
-I want to combine hdd and cdd values on given time period && given location. You can reach location from data card.
+//I want to combine hdd and cdd values on given time period && given location. You can reach location from data card.
 
 Make exploratory analysis on data(Correlation,single regression,etc… but I want these : Create functions for [Correlation between selected driver and selected meter],[Correlation between all drivers],[Single Regression between selected meter and selected Driver]).
 
