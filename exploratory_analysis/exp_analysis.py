@@ -4,10 +4,10 @@ import matplotlib.pylab as plt
 import seaborn as sns
 plt.style.use('ggplot')
 
-
+# correlation and single_regression function can not run at the same time
 def main():
-    df = pd.read_csv('data/data_v2.csv')
-    correlation(df)
+    df = pd.read_csv('data/data_v3.csv')
+    # correlation(df)
     single_regression(df)
 
 def correlation(dataframe):
@@ -21,9 +21,10 @@ def correlation(dataframe):
 
 def single_regression(dataframe):
     sns.pairplot(dataframe,
-             vars=['day_of_week_x', 'Hour_of_Day', 'Value (kWh)', 'Temp_avg', 'HDD', 'CDD'],
-            hue='HDD')
+                 vars=['day_of_week_x', 'Hour_of_Day', 'Value (kWh)', 'Temp_avg', 'HDD', 'CDD'],
+                 hue='notes')
     plt.show()
+
 
 
 if __name__ == "__main__":
