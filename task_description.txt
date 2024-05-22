@@ -19,9 +19,9 @@ Think like that, electric usage is “meter” and  temperature values are “dr
 
 //I want to combine hdd and cdd values on given time period && given location. You can reach location from data card.
 
-Make exploratory analysis on data(Correlation,single regression,etc… but I want these : Create functions for [Correlation between selected driver and selected meter],[Correlation between all drivers],[Single Regression between selected meter and selected Driver]).
+//Make exploratory analysis on data(Correlation,single regression,etc… but I want these : Create functions for [Correlation between selected driver and selected meter],[Correlation between all drivers],[Single Regression between selected meter and selected Driver]).
 
-Visualize your work but I want to see also results of analysis in json format in possible analysis.
+// Visualize your work but I want to see also results of analysis in json format in possible analysis.
 
 Create a neural network and make make prediction for next 2 months electric usage  with regression(Time period is from past so you can reach them).
 
