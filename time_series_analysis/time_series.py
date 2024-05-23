@@ -20,13 +20,11 @@ def mean_absolute_percentage_error(y_true, y_pred):
 df = pd.read_csv('data/data_v3.csv', index_col=[0], parse_dates=[0])
 
 print("Initial columns:", df.columns)
-
 columns_to_keep = {'StartDate', 'Value (kWh)', 'day_of_week_x', 'Hour_of_Day', 'notes'}
 all_names = {'Value (kWh)', 'day_of_week_x', 'Temp_max', 'Temp_avg', 'Temp_min',
              'Dew_max', 'Dew_avg', 'Dew_min', 'Hum_max', 'Hum_avg', 'Hum_min',
              'Wind_max', 'Wind_avg', 'Wind_min', 'Press_max', 'Press_avg',
              'Press_min', 'Precipit', 'HDD', 'CDD', 'Hour_of_Day', 'notes'}
-
 df.drop(columns=list(all_names - columns_to_keep), inplace=True)
 print("Columns after dropping:", df.columns)
 
@@ -37,9 +35,6 @@ plt.savefig('all_time_use.png')
 cat_type = CategoricalDtype(categories=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'], ordered=True)
 
 def create_features(df, label=None):
-    """
-    Creates time series features from datetime index.
-    """
     df = df.copy()
     df['date'] = df.index
     df['hour'] = df['date'].dt.hour
@@ -53,9 +48,7 @@ def create_features(df, label=None):
     df['dayofmonth'] = df['date'].dt.day
     df['weekofyear'] = df['date'].dt.isocalendar().week
     df['date_offset'] = (df.date.dt.month * 100 + df.date.dt.day - 320) % 1300
-
     df['season'] = pd.cut(df['date_offset'], [0, 300, 602, 900, 1300], labels=['Spring', 'Summer', 'Fall', 'Winter'])
-
     X = df[['hour', 'dayofweek', 'quarter', 'month', 'year', 'dayofyear', 'dayofmonth', 'weekofyear', 'weekday', 'season']]
     if label:
         y = df[label]
@@ -73,6 +66,7 @@ ax.set_ylabel('Power (kWh)')
 ax.legend(bbox_to_anchor=(1, 1))
 plt.savefig('weekly_data.png')
 
+# Train-test split
 split_date = '2020-05-07'
 df_train = df.loc[df.index <= split_date].copy()
 df_test = df.loc[df.index > split_date].copy()
@@ -81,28 +75,32 @@ df_test.rename(columns={'Value (kWh)': 'TEST SET'}, inplace=True)
 df_train.rename(columns={'Value (kWh)': 'TRAINING SET'}, inplace=True)
 
 df_combined = df_test[['TEST SET']].join(df_train[['TRAINING SET']], how='outer')
-
 df_combined.plot(figsize=(15, 5), title='Power Use', style='.')
 plt.savefig('train-test_split.png')
 
 df_train_prophet = df_train.reset_index().rename(columns={'StartDate': 'ds', 'TRAINING SET': 'y'})
 df_test_prophet = df_test.reset_index().rename(columns={'StartDate': 'ds', 'TEST SET': 'y'})
 
-
 model = Prophet()
 model.fit(df_train_prophet)
 
+df_test_forecast = model.predict(df_test_prophet[['ds']])
 
-df_test_forecast = model.predict(df_test_prophet)
+print("df_test_forecast columns:", df_test_forecast.columns)
 
 fig, ax = plt.subplots(figsize=(10, 5))
 fig = model.plot(df_test_forecast, ax=ax)
 ax.set_title('Forecast')
 plt.savefig('test_forecast.png')
 
-
 f, ax = plt.subplots(figsize=(15, 5))
 ax.scatter(df_test.index, df_test['TEST SET'], color='r')
 fig = model.plot(df_test_forecast, ax=ax)
 ax.set_title('Comparison w/ real data')
 plt.savefig('comparison_prophet.png')
+
+df_test_forecast.set_index('ds', inplace=True)
+df_test_combined = df_test.join(df_test_forecast[['yhat']], how='left')
+
+score = np.sqrt(mean_squared_error(df_test['TEST SET'], df_test_combined['yhat']))
+print(f'RMSE Score on Test set: {score:0.2f}')
