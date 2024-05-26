@@ -13,8 +13,6 @@ def main():
     with open('correlation_result.json', 'w') as f:
         json.dump(correlation_result, f)
     
-    with open('single_regression_result.json', 'w') as f:
-        json.dump(single_regression_result, f)
 
 def correlation(dataframe):
     df_corr = dataframe[['day_of_week_x', 'Hour_of_Day', 'Value (kWh)', 'Temp_avg', 'HDD', 'CDD']].dropna().corr()
@@ -27,7 +25,7 @@ def correlation(dataframe):
     plt.savefig('correlation_matrix.png')
     plt.close()
 
-    return {'correlation_matrix': 'correlation_matrix.png'}
+    return {'correlation_matrix': str(df_corr)}
 
 def single_regression(dataframe):
     sns.pairplot(dataframe,
