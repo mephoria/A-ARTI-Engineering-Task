@@ -25,7 +25,8 @@ def correlation(dataframe):
     plt.savefig('correlation_matrix.png')
     plt.close()
 
-    return {'correlation_matrix': str(df_corr)}
+    correlation_matrix = df_corr.to_dict()
+    return {'correlation_matrix': correlation_matrix}
 
 def single_regression(dataframe):
     sns.pairplot(dataframe,
